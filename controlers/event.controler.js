@@ -2,9 +2,11 @@ import Storage from "../modals/storage.modal.js";
 import axios from "axios";
 import convertSize from "convert-size";
 const handleEvent = async (type, data) => {
+  // console.log(type, data);
   if (type === "userCreated") {
     const newUser = new Storage({ userId: data.userId });
-    await newUser.save();
+    const user = await newUser.save();
+    // console.log(user);
   }
   if (type === "imageUploaded") {
     const userId = data.userId;
